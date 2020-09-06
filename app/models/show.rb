@@ -13,12 +13,17 @@ class Show < ActiveRecord::Base
   #   end
   # end
   
-  def actors_list
-    self.actors.collect do |a|
-      "#{a.first_name} #{last_name} - #{a.self.name}"
-    end
-  end
+  # def actors_list
+  #   self.actors.collect do |a|
+  #     "#{a.first_name} #{last_name} - #{a.self.name}"
+  #   end
+  # end
       
-  
+    def actors_list
+    something = characters.where(show_id: self.id)
+    # binding.pry
+    something_else = actors.where(id: something)
+    something_else.collect {|actor| "#{actor.first_name} #{actor.last_name}"}
+  end
   
 end
