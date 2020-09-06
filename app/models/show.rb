@@ -3,33 +3,9 @@ class Show < ActiveRecord::Base
   has_many :actors, through: :characters
   belongs_to :network
   
-  #   def full_name
-  #   "#{self.first_name} #{self.last_name}"
-  # end
-  
-  # def list_roles
-  #   self.characters.collect do |c|
-  #     "#{c.name} - #{c.show.name}"
-  #   end
-  # end
-  
-  # def actors_list
-  #   self.actors.collect do |a|
-  #     "#{a.first_name} #{last_name} - #{a.self.name}"
-  #   end
-  # end
-    
-        def actors_list
-        self.actors.map do |actor|
-            actor.full_name
-        end
+  def actors_list
+    self.actors.map do |actor|
+      actor.full_name
+      end
     end
-      
-  #   def actors_list
-  #   something = characters.where(show_id: self.id)
-  #   # binding.pry
-  #   something_else = actors.where(id: something)
-  #   something_else.collect {|actor| "#{actor.first_name} #{actor.last_name}"}
-  # end
-  
 end
