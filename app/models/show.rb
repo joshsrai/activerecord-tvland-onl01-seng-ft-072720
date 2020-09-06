@@ -17,6 +17,7 @@ class Show < ActiveRecord::Base
     self.actors.collect do |a|
       "#{a.full_name} - #{a.self.name}"
     end
+  end
       
   
   
