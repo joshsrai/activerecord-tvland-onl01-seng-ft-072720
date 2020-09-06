@@ -18,12 +18,18 @@ class Show < ActiveRecord::Base
   #     "#{a.first_name} #{last_name} - #{a.self.name}"
   #   end
   # end
+    
+        def actors_list
+        self.actors.map do |actor|
+            actor.full_name
+        end
+    end
       
-    def actors_list
-    something = characters.where(show_id: self.id)
-    # binding.pry
-    something_else = actors.where(id: something)
-    something_else.collect {|actor| "#{actor.first_name} #{actor.last_name}"}
-  end
+  #   def actors_list
+  #   something = characters.where(show_id: self.id)
+  #   # binding.pry
+  #   something_else = actors.where(id: something)
+  #   something_else.collect {|actor| "#{actor.first_name} #{actor.last_name}"}
+  # end
   
 end
